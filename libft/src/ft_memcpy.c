@@ -6,11 +6,11 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:55:29 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/11/16 13:39:21 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 13:14:14 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../headers/libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t size)
 {

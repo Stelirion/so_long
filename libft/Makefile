@@ -6,7 +6,7 @@
 #    By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 13:23:24 by ngennaro          #+#    #+#              #
-#    Updated: 2022/12/16 12:04:23 by ngennaro         ###   ########lyon.fr    #
+#    Updated: 2022/12/16 13:15:19 by ngennaro         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ OBJS	= ${SRCS:.c=.o}
 
 CC	= cc
 
-HEADERS	= libft.h get_next_line_bonus.h ft_printf.h
+HEADERS	= ../headers/libft.h ../headers/get_next_line_bonus.h ../headers/ft_printf.h
 
 NAME	= libft.a
 

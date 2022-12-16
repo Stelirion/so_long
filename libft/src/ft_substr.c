@@ -6,11 +6,11 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:52:02 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/11/17 15:35:03 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 13:14:14 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../headers/libft.h"
 
 static char	*copy(char *dest, char *src, size_t len)
 {

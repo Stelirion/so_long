@@ -6,11 +6,11 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:12:38 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/11/18 10:18:03 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 13:14:14 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../headers/libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:49:27 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/14 14:35:02 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 13:14:51 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../headers/get_next_line_bonus.h"
 
 size_t	len(const char *str)
 {

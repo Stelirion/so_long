@@ -6,11 +6,11 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 10:42:59 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/11/16 17:07:51 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 13:14:14 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../headers/libft.h"
 
 char	*ft_strdup(const char *src)
 {
