@@ -6,58 +6,67 @@
 #    By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 13:23:24 by ngennaro          #+#    #+#              #
-#    Updated: 2022/12/16 13:15:19 by ngennaro         ###   ########lyon.fr    #
+#    Updated: 2022/12/16 16:43:10 by ngennaro         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= src/ft_isalpha.c \
-src/ft_isdigit.c \
-src/ft_isalnum.c \
-src/ft_isascii.c \
-src/ft_isprint.c \
-src/ft_strlen.c \
-src/ft_memset.c \
-src/ft_bzero.c \
-src/ft_memcpy.c \
-src/ft_memmove.c \
-src/ft_strlcpy.c \
-src/ft_strlcat.c \
-src/ft_toupper.c \
-src/ft_tolower.c \
-src/ft_strchr.c \
-src/ft_strrchr.c \
-src/ft_strncmp.c \
-src/ft_memchr.c \
-src/ft_memcmp.c \
-src/ft_strnstr.c \
-src/ft_atoi.c \
-src/ft_calloc.c \
-src/ft_strdup.c \
-src/ft_substr.c \
-src/ft_strjoin.c \
-src/ft_strtrim.c \
-src/ft_putchar_fd.c \
-src/ft_putstr_fd.c \
-src/ft_putendl_fd.c \
-src/ft_putnbr_fd.c \
-src/ft_itoa.c \
-src/ft_strmapi.c \
-src/ft_split.c \
-src/ft_striteri.c \
-src/ft_printf.c \
-src/var_type_int.c \
-src/var_type_str.c \
-src/var_type_unsigned.c \
-src/var_type_ptr.c \
-src/get_next_line_bonus.c \
-src/get_next_line_utils_bonus.c
+SRCS	= ft_isalpha.c \
+ft_isdigit.c \
+ft_isalnum.c \
+ft_isascii.c \
+ft_isprint.c \
+ft_strlen.c \
+ft_memset.c \
+ft_bzero.c \
+ft_memcpy.c \
+ft_memmove.c \
+ft_strlcpy.c \
+ft_strlcat.c \
+ft_toupper.c \
+ft_tolower.c \
+ft_strchr.c \
+ft_strrchr.c \
+ft_strncmp.c \
+ft_memchr.c \
+ft_memcmp.c \
+ft_strnstr.c \
+ft_atoi.c \
+ft_calloc.c \
+ft_strdup.c \
+ft_substr.c \
+ft_strjoin.c \
+ft_strtrim.c \
+ft_putchar_fd.c \
+ft_putstr_fd.c \
+ft_putendl_fd.c \
+ft_putnbr_fd.c \
+ft_itoa.c \
+ft_strmapi.c \
+ft_split.c \
+ft_striteri.c \
+ft_printf.c \
+var_type_int.c \
+var_type_str.c \
+var_type_unsigned.c \
+var_type_ptr.c \
+get_next_line_bonus.c \
+get_next_line_utils_bonus.c
 
+DIR_SRCS = src/
 
-OBJS	= ${SRCS:.c=.o}
+DIR_OBJS = .objs/
+
+DIR_HEAD = headers/
+
+OBJS	=	${SRCS:%.c=${DIR_OBJS}%.o}
 
 CC	= cc
 
-HEADERS	= ../headers/libft.h ../headers/get_next_line_bonus.h ../headers/ft_printf.h
+MKDIR	=	mkdir -p
+
+HEADERS	= 	libft.h \
+			get_next_line_bonus.h \
+			ft_printf.h
 
 NAME	= libft.a
 
@@ -66,16 +75,19 @@ CFLAGS	= -Wall -Wextra -Werror
 all :		${NAME}
 
 clean :
-			rm -f ${OBJS}
+			rm -rf ${DIR_OBJS}
 
 fclean :	clean
-			rm -f ${NAME}
+			rm -rf ${NAME}
 
 re :		fclean
 			$(MAKE) all
 
-%.o: %.c	$(HEADERS) Makefile
-			${CC} ${CFLAGS} -o $@ -c $< -I $(HEADERS)
+${DIR_OBJS}%.o: 	${DIR_SRCS}%.c	${addprefix ${DIR_HEAD}, ${HEADERS}} Makefile | ${DIR_OBJS}
+					${CC} ${CFLAGS} -I ${DIR_HEAD} -c $< -o $@
+
+${DIR_OBJS}		:
+					${MKDIR} ${DIR_OBJS}
 
 ${NAME} :	${OBJS}
 			ar -rc ${NAME} ${OBJS}
