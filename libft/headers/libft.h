@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ../headers/libft.h                                            :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 13:07:52 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/11/23 08:52:51 by ngennaro         ###   ########lyon.fr   */
+/*   Created: 2022/12/18 13:22:12 by ngennaro          #+#    #+#             */
+/*   Updated: 2022/12/18 13:22:27 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+char	*ft_strjoin_free(char const *s1, char const *s2);
 
 #endif

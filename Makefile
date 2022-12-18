@@ -14,7 +14,7 @@ LIBMLX		=	libmlx.a
 
 DIR_OBJS	=	.objs/
 
-DIR_SRCS	=	srcs/
+DIR_SRCS	=	./
 
 DIR_MLX		=	mlx/
 

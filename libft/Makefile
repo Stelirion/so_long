@@ -6,7 +6,7 @@
 #    By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 13:23:24 by ngennaro          #+#    #+#              #
-#    Updated: 2022/12/16 16:43:10 by ngennaro         ###   ########lyon.fr    #
+#    Updated: 2022/12/18 13:23:37 by ngennaro         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ var_type_str.c \
 var_type_unsigned.c \
 var_type_ptr.c \
 get_next_line_bonus.c \
-get_next_line_utils_bonus.c
+get_next_line_utils_bonus.c \
+ft_strjoin_free.c
 
 DIR_SRCS = src/
 
