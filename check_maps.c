@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/18 20:20:34 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/18 20:23:18 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	check_chr_validity(char **maps, int *maps_rules)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while (maps[i])
 	{
+		j = 0;
 		while (maps[i][j])
 		{
 			if (maps[i][j] == '1' || maps[i][j] == '0')
@@ -64,7 +64,6 @@ int	check_chr_validity(char **maps, int *maps_rules)
 				return (1);
 			j++;
 		}
-		j = 0;
 		i++;
 	}
 	return (0);
