@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:10:54 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/18 15:52:43 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/18 19:51:51 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 # include "./mlx/mlx.h"
 
 char	**read_maps(char *file);
+int	check_maps_validity(char **maps);
 
 #endif

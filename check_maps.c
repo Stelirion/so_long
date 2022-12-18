@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/18 16:04:55 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/18 20:20:34 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,52 @@ char	**read_maps(char *file)
 	if (!maps)
 		return (ft_printf("ERREUR, Le parsing de la map a echouer\n"), NULL);
 	return (free(temp), maps);
+}
+
+int	check_chr_validity(char **maps, int *maps_rules)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (maps[i])
+	{
+		while (maps[i][j])
+		{
+			if (maps[i][j] == '1' || maps[i][j] == '0')
+			{
+			}
+			else if (maps[i][j] == 'P')
+				maps_rules[0] += 1;
+			else if (maps[i][j] == 'C')
+				maps_rules[1] += 1;
+			else if (maps[i][j] == 'E')
+				maps_rules[2] += 1;
+			else
+				return (1);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (0);
+}
+
+int	check_maps_validity(char **maps)
+{
+	int	maps_rules[3];
+
+	maps_rules[0] = 0;
+	maps_rules[1] = 0;
+	maps_rules[2] = 0;
+	if (check_chr_validity(maps, maps_rules) == 1)
+		return (ft_printf("Error, Caractere invalide"), 1);
+	if (maps_rules[0] != 1)
+		return (ft_printf("Error, nombre de joueur invalide"), 1);
+	if (maps_rules[1] < 1)
+		return (ft_printf("Error, nombre de colectibles invalide"), 1);
+	if (maps_rules[2] != 1)
+		return (ft_printf("Error, nombre de sorties invalide"), 1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/18 16:06:38 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/18 19:51:29 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int	main(int argc, char **argv)
 	maps = read_maps(argv[1]);
 	if (!maps)
 		return (ft_printf("ERREUR, Map invalide"));
+	if (check_maps_validity(maps) == 1)
+		return (0);
 	print_maps(maps);
 }
