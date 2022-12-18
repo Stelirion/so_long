@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/18 15:53:16 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/18 16:04:55 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ char	**read_maps(char *file)
 	maps = ft_split(temp, '\n');
 	if (!maps)
 		return (ft_printf("ERREUR, Le parsing de la map a echouer\n"), NULL);
-	free(temp);
-	return (maps);
+	return (free(temp), maps);
 }

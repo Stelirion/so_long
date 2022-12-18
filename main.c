@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/18 15:55:10 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/18 16:01:01 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (ft_printf("ERREUR, Nombre d'arguments invalide\n"));
 	maps = read_maps(argv[1]);
+	if (!maps)
+		return(ft_printf("ERREUR, Map invalide"));
 	print_maps(maps);
 }
