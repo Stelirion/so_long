@@ -24,7 +24,7 @@ DIR_LIBFT	=	libft/
 
 HEAD	=	so_long.h
 
-SRCS	=	main.c check_maps.c
+SRCS	=	main.c maps.c maps_check.c
 
 OBJS	=	${SRCS:%.c=${DIR_OBJS}%.o}
 
