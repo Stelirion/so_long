@@ -6,13 +6,13 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 20:33:14 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/18 20:58:38 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/19 13:49:32 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_chr_validity(char **maps, int *maps_rules)
+int	check_chr_validity(char **maps, t_gamerules *gamerules)
 {
 	int	i;
 	int	j;
@@ -27,11 +27,11 @@ int	check_chr_validity(char **maps, int *maps_rules)
 			{
 			}
 			else if (maps[i][j] == 'P')
-				maps_rules[0] += 1;
+				gamerules->player += 1;
 			else if (maps[i][j] == 'C')
-				maps_rules[1] += 1;
+				gamerules->colectible += 1;
 			else if (maps[i][j] == 'E')
-				maps_rules[2] += 1;
+				gamerules->exit += 1;
 			else
 				return (1);
 			j++;

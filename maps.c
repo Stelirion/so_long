@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/19 12:45:11 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2022/12/19 13:52:51 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,20 @@ int	free_maps(char **maps)
 
 int	check_maps_validity(char **maps)
 {
-	int	maps_rules[3];
+	t_gamerules	gamerules;
 
-	maps_rules[0] = 0;
-	maps_rules[1] = 0;
-	maps_rules[2] = 0;
+	gamerules.player = 0;
+	gamerules.colectible = 0;
+	gamerules.exit = 0;
 	if (check_format(maps) == 1)
 		return (ft_printf("Error, Map non rectangulaire"), 1);
-	if (check_chr_validity(maps, maps_rules) == 1)
+	if (check_chr_validity(maps, &gamerules) == 1)
 		return (ft_printf("Error, Caractere invalide"), 1);
-	if (maps_rules[0] != 1)
+	if (gamerules.player != 1)
 		return (ft_printf("Error, nombre de joueur invalide"), 1);
-	if (maps_rules[1] < 1)
+	if (gamerules.colectible < 1)
 		return (ft_printf("Error, nombre de colectibles invalide"), 1);
-	if (maps_rules[2] != 1)
+	if (gamerules.exit != 1)
 		return (ft_printf("Error, nombre de sorties invalide"), 1);
 	if (check_border(maps) == 1)
 		return (ft_printf("Error, Map non cloturer"), 1);
