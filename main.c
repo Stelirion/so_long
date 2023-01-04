@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/04 15:17:32 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/04 15:23:22 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,17 @@ void	print_maps(char **maps)
 			else if (maps[i][j] == 'C')
 				mlx_put_image_to_window(mlx, mlx_win, item, 32 * j, 32 * i);
 			else if (maps[i][j] == 'E')
-				mlx_put_image_to_window(mlx, mlx_win, item, 32 * j, 32 * i);
+				mlx_put_image_to_window(mlx, mlx_win, exit, 32 * j, 32 * i);
 			j++;
 		}
 		i++;
 	}
+
+	mlx_destroy_image(mlx, wall);
+	mlx_destroy_image(mlx, floor);
+	mlx_destroy_image(mlx, player);
+	mlx_destroy_image(mlx, item);
+	mlx_destroy_image(mlx, exit);
 	mlx_loop(mlx);
 }
 
