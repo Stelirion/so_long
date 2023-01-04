@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/04 13:09:18 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/04 15:20:28 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ char	**read_maps(char *file)
 	check = 1;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (ft_printf("ERREUR, Le fichier n'a pas pu etre ouvert\n"), NULL);
+		return (ft_printf("ERROR, The file could not be opened\n"), NULL);
 	temp = malloc(sizeof(char));
 	if (!temp)
-		return (ft_printf("ERREUR, Un malloc a echouer\n"), NULL);
+		return (ft_printf("ERROR, A malloc fail\n"), NULL);
 	temp[0] = '\0';
 	while (check != 0)
 	{
@@ -36,7 +36,7 @@ char	**read_maps(char *file)
 	}
 	maps = ft_split(temp, '\n');
 	if (!maps)
-		return (ft_printf("ERREUR, Le parsing de la map a echouer\n"), NULL);
+		return (ft_printf("ERROR, Map parsing failed\n"), NULL);
 	return (free(temp), maps);
 }
 
@@ -62,7 +62,7 @@ int	check_maps_validity(char **maps)
 	gamerules.colectible = 0;
 	gamerules.exit = 0;
 	if (check_format(maps) == 1)
-		return (ft_printf("Error, Map non rectangulaire"), 1);
+		return (ft_printf("Error, the map must be rectangular"), 1);
 	if (check_chr_validity(maps, &gamerules) == 1)
 		return (ft_printf("Error, invalid caractere"), 1);
 	if (gamerules.player != 1)
