@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/19 17:12:50 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/04 13:09:18 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ int	check_maps_validity(char **maps)
 	if (check_format(maps) == 1)
 		return (ft_printf("Error, Map non rectangulaire"), 1);
 	if (check_chr_validity(maps, &gamerules) == 1)
-		return (ft_printf("Error, Caractere invalide"), 1);
+		return (ft_printf("Error, invalid caractere"), 1);
 	if (gamerules.player != 1)
-		return (ft_printf("Error, nombre de joueur invalide"), 1);
+		return (ft_printf("Error, invalid player count"), 1);
 	if (gamerules.colectible < 1)
-		return (ft_printf("Error, nombre de colectibles invalide"), 1);
+		return (ft_printf("Error, invalid colectible count"), 1);
 	if (gamerules.exit != 1)
-		return (ft_printf("Error, nombre de sorties invalide"), 1);
+		return (ft_printf("Error, invalid exit count"), 1);
 	if (check_border(maps) == 1)
-		return (ft_printf("Error, Map non cloturer"), 1);
+		return (ft_printf("Error, Missing border"), 1);
 	return (0);
 }
