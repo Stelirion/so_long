@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 13:25:27 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 18:12:29 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,30 @@ int	free_maps(char **maps)
 	}
 	free(maps);
 	return (1);
+}
+
+void	locate_player(t_mlx *mlx)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (mlx->maps[i])
+	{
+		j = 0;
+		while (mlx->maps[i][j])
+		{
+			if (mlx->maps[i][j] == 'P')
+			{
+				mlx->player_x = i;
+				mlx->player_y = j;
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
+	return ;
 }
 
 int	check_maps_validity(char **maps)

@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:10:54 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 17:20:03 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 18:10:16 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*mlx_win;
+	char	**maps;
+	int		player_x;
+	int		player_y;
 	int		img_width;
 	int		img_height;
 	void	*wall;
@@ -38,7 +41,6 @@ typedef struct s_mlx
 	void	*player;
 	void	*exit;
 	void	*item;
-	char	**maps;
 }			t_mlx;
 
 char	**read_maps(char *file);
@@ -47,6 +49,7 @@ int		check_chr_validity(char **maps, t_gamerules *s_gamerules);
 int		check_format(char **maps);
 int		check_border(char **maps);
 int		free_maps(char **maps);
+void	locate_player(t_mlx *mlx);
 int		key_hook(int keycode, t_mlx *mlx);
 void	create_windows(t_mlx *mlx);
 void	print_maps(t_mlx *mlx);
