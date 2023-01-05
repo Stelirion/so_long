@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 17:17:27 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 17:46:29 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ static void	text_maps(char **maps)
 	i = 0;
 	while (maps[i])
 		ft_printf("%s\n", maps[i++]);
+}
+
+void game (t_mlx *mlx)
+{
+	mlx->mlx = mlx_init();
+	create_windows(mlx);
+	create_img(mlx);
+	print_maps(mlx);
+	mlx_key_hook(mlx->mlx_win, key_hook, mlx);
+	mlx_loop(mlx->mlx);
+	destroy_img(mlx);
 }
 
 int	main(int argc, char **argv)
@@ -35,11 +46,6 @@ int	main(int argc, char **argv)
 		return (free_maps(maps));
 	text_maps(maps);
 	mlx.maps = maps;
-	mlx.mlx = mlx_init();
-	create_windows(&mlx);
-	create_img(&mlx);
-	print_maps(&mlx);
-	mlx_key_hook(mlx.mlx_win, key_hook, &mlx);
-	mlx_loop(mlx.mlx);
-	destroy_img(&mlx);
+	game (&mlx);
+
 }
