@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:10:54 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 13:29:41 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 14:06:06 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ int		check_chr_validity(char **maps, t_gamerules *s_gamerules);
 int		check_format(char **maps);
 int		check_border(char **maps);
 int		free_maps(char **maps);
+void	create_windows(char **maps, t_mlx *mlx);
 void	print_maps(char **maps, t_mlx *mlx);
+void	create_img(t_mlx *mlx);
+void	destroy_img(t_mlx *mlx);
 
 #endif
