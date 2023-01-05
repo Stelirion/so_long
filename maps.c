@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 13:19:00 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 13:25:27 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ char	**read_maps(char *file)
 	cursor = 1;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (ft_printf("ERROR, The file could not be opened\n"), NULL);
+		return (ft_printf("ERROR\nThe file could not be opened"), NULL);
 	line = malloc(sizeof(char));
 	if (!line)
-		return (ft_printf("ERROR, A malloc fail\n"), NULL);
+		return (ft_printf("vA malloc fail"), NULL);
 	line[0] = '\0';
 	while (cursor != 0)
 	{
@@ -48,7 +48,7 @@ char	**read_maps(char *file)
 	line = delete_last_col(line);
 	map = ft_split(line, '\n');
 	if (!map)
-		return (ft_printf("ERROR, enter message about split\n"), NULL);
+		return (ft_printf("ERROR\nenter message about split"), NULL);
 	return (free(line), map);
 }
 
@@ -74,16 +74,16 @@ int	check_maps_validity(char **maps)
 	gamerules.colectible = 0;
 	gamerules.exit = 0;
 	if (check_format(maps) == 1)
-		return (ft_printf("Error, the map must be rectangular"), 1);
+		return (ft_printf("ERROR\nthe map must be rectangular"), 1);
 	if (check_chr_validity(maps, &gamerules) == 1)
-		return (ft_printf("Error, invalid caractere"), 1);
+		return (ft_printf("ERROR\ninvalid caractere"), 1);
 	if (gamerules.player != 1)
-		return (ft_printf("Error, invalid player count"), 1);
+		return (ft_printf("ERROR\ninvalid player count"), 1);
 	if (gamerules.colectible < 1)
-		return (ft_printf("Error, invalid colectible count"), 1);
+		return (ft_printf("ERROR\ninvalid colectible count"), 1);
 	if (gamerules.exit != 1)
-		return (ft_printf("Error, invalid exit count"), 1);
+		return (ft_printf("ERROR\ninvalid exit count"), 1);
 	if (check_border(maps) == 1)
-		return (ft_printf("Error, Missing border"), 1);
+		return (ft_printf("ERROR\nMissing border"), 1);
 	return (0);
 }
