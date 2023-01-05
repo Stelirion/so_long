@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:28:51 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 15:10:35 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 16:23:24 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	create_windows(char **maps, t_mlx *mlx)
 	mlx->mlx_win = mlx_new_window(mlx->mlx, 32 * j, 32 * i, "so_long");
 }
 
-void	create_img(t_mlx *mlx)
+void	create_img(t_mlx *mlx, char **maps)
 {
 	mlx->wall = mlx_xpm_file_to_image(mlx->mlx,
 			"img/wall.xpm", &mlx->img_width, &mlx->img_height);
@@ -38,6 +38,12 @@ void	create_img(t_mlx *mlx)
 			"img/door.xpm", &mlx->img_width, &mlx->img_height);
 	mlx->item = mlx_xpm_file_to_image(mlx->mlx,
 			"img/chest.xpm", &mlx->img_width, &mlx->img_height);
+	if (!mlx->wall || !mlx->floor || !mlx->player || !mlx->item || !mlx->exit)
+	{
+		ft_printf("Error\nmissing texture");
+		free_maps(maps);
+		exit(0);
+	}
 }
 
 void	destroy_img(t_mlx *mlx)
