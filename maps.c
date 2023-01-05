@@ -6,38 +6,50 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/04 15:20:28 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 13:19:00 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+static char	*delete_last_col(char *line)
+{
+	size_t	i;
+
+	i = 0;
+	while (line[i])
+		i++;
+	line[i - 1] = '\0';
+	return (line);
+}
+
 char	**read_maps(char *file)
 {
-	char	*temp;
-	int		check;
-	char	**maps;
+	char	*line;
+	char	**map;
 	char	buffer[2];
+	size_t	cursor;
 	int		fd;
 
-	check = 1;
+	cursor = 1;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		return (ft_printf("ERROR, The file could not be opened\n"), NULL);
-	temp = malloc(sizeof(char));
-	if (!temp)
+	line = malloc(sizeof(char));
+	if (!line)
 		return (ft_printf("ERROR, A malloc fail\n"), NULL);
-	temp[0] = '\0';
-	while (check != 0)
+	line[0] = '\0';
+	while (cursor != 0)
 	{
-		check = read(fd, buffer, 1);
+		cursor = read(fd, buffer, 1);
 		buffer[1] = '\0';
-		temp = ft_strjoin_free(temp, (const char *)buffer);
+		line = ft_strjoin(line, (const char *)buffer);
 	}
-	maps = ft_split(temp, '\n');
-	if (!maps)
-		return (ft_printf("ERROR, Map parsing failed\n"), NULL);
-	return (free(temp), maps);
+	line = delete_last_col(line);
+	map = ft_split(line, '\n');
+	if (!map)
+		return (ft_printf("ERROR, enter message about split\n"), NULL);
+	return (free(line), map);
 }
 
 int	free_maps(char **maps)
