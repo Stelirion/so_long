@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:10:54 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/04 13:48:28 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 12:53:12 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ typedef struct s_gamerules
 	size_t	colectible;
 	size_t	exit;
 }	t_gamerules;
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*mlx_win;
+	int		img_width;
+	int		img_height;
+	void	*wall;
+	void	*floor;
+	void	*player;
+	void	*exit;
+	void	*item;
+}	t_mlx;
 
 char	**read_maps(char *file);
 int		check_maps_validity(char **maps);
