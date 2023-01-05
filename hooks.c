@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 17:03:53 by ngennaro         ###   ########lyon.fr   */
+/*   Created: 2023/01/05 16:33:47 by ngennaro          #+#    #+#             */
+/*   Updated: 2023/01/05 17:03:07 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,32 @@ static void	text_maps(char **maps)
 		ft_printf("%s\n", maps[i++]);
 }
 
-int	main(int argc, char **argv)
+int	key_hook(int keycode, char ***maps)
 {
-	t_mlx	mlx;
-	char	**maps;
-
-	if (argc != 2)
-		return (ft_printf("ERROR\ninvalid number of args"));
-	maps = read_maps(argv[1]);
-	if (!maps)
+	if (keycode == 53)
+	{
+		free_maps(*maps);
+		exit(0);
+	}
+	else if (keycode == 126)
+	{
+		ft_printf("up\n", keycode);
+	}
+	else if (keycode == 125)
+	{
+		ft_printf("down\n", keycode);
+	}
+	else if (keycode == 124)
+	{
+		ft_printf("right\n", keycode);
+	}
+	else if (keycode == 123)
+	{
+		ft_printf("left\n", keycode);
+	}
+	else
 		return (0);
-	if (check_maps_validity(maps) == 1)
-		return (free_maps(maps));
-	text_maps(maps);
-	mlx.mlx = mlx_init();
-	create_windows(maps, &mlx);
-	create_img(&mlx, maps);
-	print_maps(maps, &mlx);
-	mlx_key_hook(mlx.mlx_win, key_hook, &maps);
-	mlx_loop(mlx.mlx);
-	destroy_img(&mlx);
+	text_maps(*maps);
+	ft_printf("key: %d\n--------------\n", keycode);
+	return (0);
 }
