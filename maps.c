@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 08:38:21 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 10:59:29 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	**read_maps(char *file)
 	{
 		cursor = read(fd, buffer, 1);
 		buffer[1] = '\0';
-		line = ft_strjoin(line, (const char *)buffer);
+		line = ft_strjoin_free(line, (const char *)buffer);
 	}
 	line = delete_last_col(line);
 	map = ft_split(line, '\n');
