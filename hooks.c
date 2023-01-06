@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 16:33:47 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 08:44:15 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 09:34:15 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	up(t_mlx *mlx)
 {
-	if (mlx->maps[mlx->player_y - 1][mlx->player_x] == 'E' && mlx->item_number == 0)
+	if (mlx->maps[mlx->player_y - 1][mlx->player_x] ==
+		'E' && mlx->item_number == 0)
 	{
+		mlx->move += 1;
+		ft_printf("moves : %i\n", mlx->move);
 		ft_printf("\n\n----------------\nCongratulation !!!\n");
 		free_maps(mlx->maps);
 		destroy_img(mlx);
@@ -30,6 +33,8 @@ int	up(t_mlx *mlx)
 		mlx->maps[mlx->player_y][mlx->player_x] = '0';
 		mlx->maps[mlx->player_y - 1][mlx->player_x] = 'P';
 		mlx->player_y -= 1;
+		mlx->move += 1;
+		ft_printf("moves : %i\n", mlx->move);
 		return (1);
 	}
 	return (0);
@@ -37,8 +42,11 @@ int	up(t_mlx *mlx)
 
 int	down(t_mlx *mlx)
 {
-	if (mlx->maps[mlx->player_y + 1][mlx->player_x] == 'E' && mlx->item_number == 0)
+	if (mlx->maps[mlx->player_y + 1][mlx->player_x] ==
+		'E' && mlx->item_number == 0)
 	{
+		mlx->move += 1;
+		ft_printf("moves : %i\n", mlx->move);
 		ft_printf("\n\n----------------\nCongratulation !!!\n");
 		free_maps(mlx->maps);
 		destroy_img(mlx);
@@ -53,6 +61,8 @@ int	down(t_mlx *mlx)
 		mlx->maps[mlx->player_y][mlx->player_x] = '0';
 		mlx->maps[mlx->player_y + 1][mlx->player_x] = 'P';
 		mlx->player_y += 1;
+		mlx->move += 1;
+		ft_printf("moves : %i\n", mlx->move);
 		return (1);
 	}
 	return (0);
@@ -60,8 +70,11 @@ int	down(t_mlx *mlx)
 
 int	right(t_mlx *mlx)
 {
-	if (mlx->maps[mlx->player_y][mlx->player_x + 1] == 'E' && mlx->item_number == 0)
+	if (mlx->maps[mlx->player_y][mlx->player_x + 1] ==
+		'E' && mlx->item_number == 0)
 	{
+		mlx->move += 1;
+		ft_printf("moves : %i\n", mlx->move);
 		ft_printf("\n\n----------------\nCongratulation !!!\n");
 		free_maps(mlx->maps);
 		destroy_img(mlx);
@@ -76,6 +89,8 @@ int	right(t_mlx *mlx)
 		mlx->maps[mlx->player_y][mlx->player_x] = '0';
 		mlx->maps[mlx->player_y][mlx->player_x + 1] = 'P';
 		mlx->player_x += 1;
+		mlx->move += 1;
+		ft_printf("moves : %i\n", mlx->move);
 		return (1);
 	}
 	return (0);
@@ -83,8 +98,11 @@ int	right(t_mlx *mlx)
 
 int	left(t_mlx *mlx)
 {
-	if (mlx->maps[mlx->player_y][mlx->player_x - 1] == 'E' && mlx->item_number == 0)
+	if (mlx->maps[mlx->player_y][mlx->player_x - 1] ==
+		'E' && mlx->item_number == 0)
 	{
+		mlx->move += 1;
+		ft_printf("moves : %i\n", mlx->move);
 		ft_printf("\n\n----------------\nCongratulation !!!\n");
 		free_maps(mlx->maps);
 		destroy_img(mlx);
@@ -99,6 +117,8 @@ int	left(t_mlx *mlx)
 		mlx->maps[mlx->player_y][mlx->player_x] = '0';
 		mlx->maps[mlx->player_y][mlx->player_x - 1] = 'P';
 		mlx->player_x -= 1;
+		mlx->move += 1;
+		ft_printf("moves : %i\n", mlx->move);
 		return (1);
 	}
 	return (0);
@@ -106,10 +126,6 @@ int	left(t_mlx *mlx)
 
 int	key_hook(int keycode, t_mlx *mlx)
 {
-	static size_t move;
-
-	if (!move)
-		move = 0;
 	if (keycode == 53)
 	{
 		free_maps(mlx->maps);
@@ -117,16 +133,15 @@ int	key_hook(int keycode, t_mlx *mlx)
 		exit(0);
 	}
 	else if (keycode == 126)
-		move += up (mlx);
+		up (mlx);
 	else if (keycode == 125)
-		move += down (mlx);
+		down (mlx);
 	else if (keycode == 124)
-		move += right (mlx);
+		right (mlx);
 	else if (keycode == 123)
-		move += left (mlx);
+		left (mlx);
 	else
 		return (0);
 	print_maps(mlx);
-	ft_printf("moves : %i\n", move);
 	return (0);
 }

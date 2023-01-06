@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:10:54 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 08:36:36 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 09:25:20 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_mlx
 	int		player_x;
 	int		player_y;
 	int		item_number;
+	int		move;
 	int		img_width;
 	int		img_height;
 	void	*wall;
