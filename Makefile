@@ -75,4 +75,5 @@ fclean			:	clean
 
 fclean_all		:	fclean fclean_lib
 
-re				:	fclean all
+re				:	fclean
+					${MAKE} all

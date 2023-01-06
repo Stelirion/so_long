@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 20:33:14 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 13:38:35 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 16:44:51 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int	check_maps_validity(char **maps)
 	gamerules.colectible = 0;
 	gamerules.exit = 0;
 	if (check_format(maps) == 1)
-		return (ft_printf("ERROR\nthe map must be rectangular"), 1);
+		return (ft_printf("ERROR\nthe map must be rectangular\n"), 1);
 	if (check_chr_validity(maps, &gamerules) == 1)
-		return (ft_printf("ERROR\ninvalid caractere"), 1);
+		return (ft_printf("ERROR\ninvalid caractere\n"), 1);
 	if (gamerules.player != 1)
-		return (ft_printf("ERROR\ninvalid player count"), 1);
+		return (ft_printf("ERROR\ninvalid player count\n"), 1);
 	if (gamerules.colectible < 1)
-		return (ft_printf("ERROR\ninvalid colectible count"), 1);
+		return (ft_printf("ERROR\ninvalid colectible count\n"), 1);
 	if (gamerules.exit != 1)
-		return (ft_printf("ERROR\ninvalid exit count"), 1);
+		return (ft_printf("ERROR\ninvalid exit count\n"), 1);
 	if (check_border(maps) == 1)
-		return (ft_printf("ERROR\nMissing border"), 1);
+		return (ft_printf("ERROR\nMissing border\n"), 1);
 	return (0);
 }
 

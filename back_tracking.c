@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:33:53 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 16:27:07 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 16:42:01 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	**map_dup(char **maps)
 		i++;
 	}
 	temp_maps = ft_split(temp, '\n');
+	free(temp);
 	return (temp_maps);
 }
 
@@ -91,7 +92,7 @@ int	check_faisability(t_mlx *mlx)
 		while (temp_maps[x][y])
 		{
 			if (temp_maps[x][y] == 'C')
-				return (1);
+				return (free_maps(temp_maps), 1);
 			if (temp_maps[x][y] == 'E')
 			{
 				if (temp_maps[x + 1][y] == '*')
