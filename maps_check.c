@@ -6,11 +6,34 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 20:33:14 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 11:52:02 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 13:38:35 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+
+int	check_maps_validity(char **maps)
+{
+	t_gamerules	gamerules;
+
+	gamerules.player = 0;
+	gamerules.colectible = 0;
+	gamerules.exit = 0;
+	if (check_format(maps) == 1)
+		return (ft_printf("ERROR\nthe map must be rectangular"), 1);
+	if (check_chr_validity(maps, &gamerules) == 1)
+		return (ft_printf("ERROR\ninvalid caractere"), 1);
+	if (gamerules.player != 1)
+		return (ft_printf("ERROR\ninvalid player count"), 1);
+	if (gamerules.colectible < 1)
+		return (ft_printf("ERROR\ninvalid colectible count"), 1);
+	if (gamerules.exit != 1)
+		return (ft_printf("ERROR\ninvalid exit count"), 1);
+	if (check_border(maps) == 1)
+		return (ft_printf("ERROR\nMissing border"), 1);
+	return (0);
+}
 
 int	check_chr_validity(char **maps, t_gamerules *gamerules)
 {
