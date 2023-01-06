@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:10:54 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 09:25:20 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 11:29:18 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_mlx
 char	**read_maps(char *file);
 int		check_maps_validity(char **maps);
 int		check_chr_validity(char **maps, t_gamerules *s_gamerules);
+int		check_extention(char *file);
 int		check_format(char **maps);
 int		check_border(char **maps);
 int		free_maps(char **maps);

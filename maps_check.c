@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 20:33:14 by ngennaro          #+#    #+#             */
-/*   Updated: 2022/12/19 17:12:46 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 11:52:02 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,30 @@ int	check_border(char **maps)
 			return (1);
 		i++;
 	}
+	return (0);
+}
+
+int	check_extention(char *file)
+{
+	int	i;
+
+	i = 0;
+	while (file[i])
+		i++;
+	i--;
+	if (file[i] != 'r')
+		return (1);
+	i--;
+	if (file[i] != 'e')
+		return (1);
+	i--;
+	if (file[i] != 'b')
+		return (1);
+	i--;
+	if (file[i] != '.')
+		return (1);
+	i--;
+	if (i <= 0)
+		return (1);
 	return (0);
 }

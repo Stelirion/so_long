@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 10:56:25 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 11:52:37 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (ft_printf("ERROR\ninvalid number of args"));
+	if (check_extention(argv[1]) == 1)
+		return (ft_printf("ERROR\nThe map need to be a .ber"));
 	maps = read_maps(argv[1]);
 	if (!maps)
 		return (0);
