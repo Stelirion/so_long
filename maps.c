@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 10:59:29 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 12:08:05 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**read_maps(char *file)
 		return (ft_printf("ERROR\nThe file could not be opened"), NULL);
 	line = malloc(sizeof(char));
 	if (!line)
-		return (ft_printf("vA malloc fail"), NULL);
+		return (ft_printf("ERROR\nA malloc fail"), NULL);
 	line[0] = '\0';
 	while (cursor != 0)
 	{
@@ -48,7 +48,7 @@ char	**read_maps(char *file)
 	line = delete_last_col(line);
 	map = ft_split(line, '\n');
 	if (!map)
-		return (ft_printf("ERROR\nenter message about split"), NULL);
+		return (ft_printf("ERROR\nA malloc fail"), NULL);
 	return (free(line), map);
 }
 
