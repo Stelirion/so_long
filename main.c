@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 11:52:37 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 14:52:51 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ int	main(int argc, char **argv)
 		return (free_maps(maps));
 	mlx.maps = maps;
 	locate_items(&mlx);
+	if (check_faisability(&mlx) == 1)
+		return (free_maps(mlx.maps), ft_printf("ERROR\nMap can not be finish"));
 	game (&mlx);
 }

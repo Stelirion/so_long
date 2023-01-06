@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:10:54 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 11:29:18 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 14:52:16 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		check_format(char **maps);
 int		check_border(char **maps);
 int		free_maps(char **maps);
 void	locate_items(t_mlx *mlx);
+int		check_faisability(t_mlx *mlx);
 int		key_hook(int keycode, t_mlx *mlx);
 void	create_windows(t_mlx *mlx);
 void	print_maps(t_mlx *mlx);
