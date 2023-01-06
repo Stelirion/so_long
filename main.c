@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 18:05:03 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 08:38:13 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ int	main(int argc, char **argv)
 		return (free_maps(maps));
 	text_maps(maps);
 	mlx.maps = maps;
-	locate_player(&mlx);
+	locate_items(&mlx);
 	game (&mlx);
 }

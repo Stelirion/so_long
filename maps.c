@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/05 18:12:29 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 08:38:21 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,13 @@ int	free_maps(char **maps)
 	return (1);
 }
 
-void	locate_player(t_mlx *mlx)
+void	locate_items(t_mlx *mlx)
 {
 	int	i;
 	int	j;
 
 	i = 0;
+	mlx->item_number = 0;
 	while (mlx->maps[i])
 	{
 		j = 0;
@@ -79,10 +80,11 @@ void	locate_player(t_mlx *mlx)
 		{
 			if (mlx->maps[i][j] == 'P')
 			{
-				mlx->player_x = i;
-				mlx->player_y = j;
-				return ;
+				mlx->player_x = j;
+				mlx->player_y = i;
 			}
+			else if (mlx->maps[i][j] == 'C')
+				mlx->item_number += 1;
 			j++;
 		}
 		i++;
