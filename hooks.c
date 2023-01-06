@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 16:33:47 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 09:34:15 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 11:05:36 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,13 +132,13 @@ int	key_hook(int keycode, t_mlx *mlx)
 		destroy_img(mlx);
 		exit(0);
 	}
-	else if (keycode == 126)
+	else if (keycode == 13)
 		up (mlx);
-	else if (keycode == 125)
+	else if (keycode == 1)
 		down (mlx);
-	else if (keycode == 124)
+	else if (keycode == 2)
 		right (mlx);
-	else if (keycode == 123)
+	else if (keycode == 0)
 		left (mlx);
 	else
 		return (0);
