@@ -6,12 +6,11 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 20:33:14 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/09 15:00:24 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/09 15:04:23 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int	check_maps_validity(char **maps)
 {
