@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:58:24 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 16:44:02 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/09 12:44:50 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,21 @@ int	on_destroy(t_mlx *mlx)
 
 void	game(t_mlx *mlx)
 {
+	char	*count;
+	char	*count_itoa;
+
 	mlx->mlx = mlx_init();
 	mlx->move = 0;
 	create_windows(mlx);
 	create_img(mlx);
 	print_maps(mlx);
-	mlx_key_hook(mlx->mlx_win, key_hook, mlx);
+	count_itoa = ft_itoa(mlx->move);
+	count = ft_strjoin("moves: ", count_itoa);
+	mlx_string_put(mlx->mlx, mlx->mlx_win, 5, 5, 1042, count);
+	free (count);
+	free (count_itoa);
 	mlx_hook(mlx->mlx_win, 17, (1L << 5), on_destroy, mlx);
+	mlx_hook(mlx->mlx_win, 2, 0, key_hook, mlx);
 	mlx_loop(mlx->mlx);
 	destroy_img(mlx);
 }

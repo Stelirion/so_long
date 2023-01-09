@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 16:33:47 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 11:05:36 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/09 12:44:37 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,9 @@ int	left(t_mlx *mlx)
 
 int	key_hook(int keycode, t_mlx *mlx)
 {
+	char	*count;
+	char	*count_itoa;
+
 	if (keycode == 53)
 	{
 		free_maps(mlx->maps);
@@ -143,5 +146,8 @@ int	key_hook(int keycode, t_mlx *mlx)
 	else
 		return (0);
 	print_maps(mlx);
-	return (0);
+	count_itoa = ft_itoa(mlx->move);
+	count = ft_strjoin("moves: ", count_itoa);
+	mlx_string_put(mlx->mlx, mlx->mlx_win, 5, 5, 1042, count);
+	return (free (count), free (count_itoa), 0);
 }
