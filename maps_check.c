@@ -6,7 +6,7 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 20:33:14 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 16:44:51 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/09 15:00:24 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_maps_validity(char **maps)
 	if (check_format(maps) == 1)
 		return (ft_printf("ERROR\nthe map must be rectangular\n"), 1);
 	if (check_chr_validity(maps, &gamerules) == 1)
-		return (ft_printf("ERROR\ninvalid caractere\n"), 1);
+		return (ft_printf("ERROR\ninvalid chr\n"), 1);
 	if (gamerules.player != 1)
 		return (ft_printf("ERROR\ninvalid player count\n"), 1);
 	if (gamerules.colectible < 1)
