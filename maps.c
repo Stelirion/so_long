@@ -6,17 +6,23 @@
 /*   By: ngennaro <ngennaro@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:52:48 by ngennaro          #+#    #+#             */
-/*   Updated: 2023/01/06 13:38:28 by ngennaro         ###   ########lyon.fr   */
+/*   Updated: 2023/01/10 12:43:26 by ngennaro         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static char	*delete_last_col(char *line)
+static char	*delete_last_col(char *line, int cursor)
 {
 	size_t	i;
 
 	i = 0;
+	if (cursor == -1)
+	{
+		ft_printf("Error\nread fail");
+		free (line);
+		exit (0);
+	}
 	while (line[i])
 		i++;
 	line[i - 1] = '\0';
@@ -28,7 +34,7 @@ char	**read_maps(char *file)
 	char	*line;
 	char	**map;
 	char	buffer[2];
-	size_t	cursor;
+	int		cursor;
 	int		fd;
 
 	cursor = 1;
@@ -39,13 +45,13 @@ char	**read_maps(char *file)
 	if (!line)
 		return (ft_printf("ERROR\nA malloc fail"), NULL);
 	line[0] = '\0';
-	while (cursor != 0)
+	while (cursor == 1)
 	{
 		cursor = read(fd, buffer, 1);
 		buffer[1] = '\0';
 		line = ft_strjoin_free(line, (const char *)buffer);
 	}
-	line = delete_last_col(line);
+	line = delete_last_col(line, cursor);
 	map = ft_split(line, '\n');
 	if (!map)
 		return (ft_printf("ERROR\nA malloc fail"), NULL);
